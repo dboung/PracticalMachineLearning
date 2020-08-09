@@ -66,6 +66,14 @@ test <- test[,colSums(is.na(test)) == 0]
 
 In order to cross-validate our best fitted model, we split our training set into training (70% of training dataset) and testing (30% of training dataset).
 
+### Out-of-sample error
+
+The expected out-of-sample error will correspond to the quantity: 1-accuracy in the cross-validation data. Accuracy is the proportion of correct classified observation over the total sample in the subTesting data set. Thus, the expected value of the out-of-sample error will correspond to the expected number of missclassified observations/total observations in the Test data set, which is the quantity: 1-accuracy found from the cross-validation data set.
+
+### Reasons for my models
+
+I chose RandomForest as my model because it has the highest Accuracy (meaning lowest out-of-sample error)
+
 ```{r,comment=NULL}
 #Split training dataset into Training Subsample, and Testing Subsample
 subsample <- createDataPartition(y=training$classe,p=0.70,list=FALSE)
